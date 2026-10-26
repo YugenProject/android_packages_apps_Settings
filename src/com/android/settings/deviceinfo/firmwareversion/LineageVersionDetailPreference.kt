@@ -65,8 +65,14 @@ class LineageVersionDetailPreference :
         preference.onPreferenceClickListener = this
     }
 
-    override fun getSummary(context: Context): CharSequence =
-        SystemProperties.get(LINEAGE_VERSION_PROPERTY, context.getString(R.string.unknown));
+    override fun getSummary(context: Context): CharSequence {
+        val version =
+            SystemProperties.get(LINEAGE_BUILD_VERSION_PROPERTY).ifEmpty {
+                SystemProperties.get(LINEAGE_VERSION_PROPERTY, context.getString(R.string.unknown))
+            }
+        val codename = SystemProperties.get(VERSION_CODENAME_PROPERTY)
+        return if (codename.isEmpty()) version else "$version ($codename)"
+    }
 
     // return true swallows the click event, while return false will start the intent
     override fun onPreferenceClick(preference: Preference): Boolean {
@@ -106,6 +112,8 @@ class LineageVersionDetailPreference :
         const val DELAY_TIMER_MILLIS = 500L
 
         const val LINEAGE_VERSION_PROPERTY: String = "ro.lineage.version"
+        const val LINEAGE_BUILD_VERSION_PROPERTY: String = "ro.lineage.build.version"
+        const val VERSION_CODENAME_PROPERTY: String = "ro.yugen.version.codename"
 
         const val PLATLOGO_PACKAGE_NAME: String = "org.lineageos.lineageparts"
         const val PLATLOGO_ACTIVITY_CLASS: String = PLATLOGO_PACKAGE_NAME + ".logo.PlatLogoActivity"
