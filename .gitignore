@@ -1,3 +1,5 @@
 .idea/
 *.code-workspace
 *.iml
+# Nested checkout of android_packages_apps_Katachi.
+/Katachi

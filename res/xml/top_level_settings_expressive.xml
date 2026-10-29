@@ -112,6 +112,16 @@
             android:summary="@string/wallpaper_dashboard_summary"
             settings:highlightableMenuKey="@string/menu_key_wallpaper"
             settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"/>
+
+        <com.android.settings.widget.HomepagePreference
+            android:fragment="org.yugen.katachi.KatachiDashboard"
+            android:icon="@drawable/ic_katachi"
+            android:key="top_level_katachi"
+            android:order="-5"
+            android:title="@string/katachi_title"
+            android:summary="@string/katachi_summary"
+            settings:keywords="@string/katachi_keywords"
+            settings:controller="org.yugen.katachi.KatachiHomeController"/>
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory
