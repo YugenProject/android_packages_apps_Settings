@@ -73,6 +73,11 @@
 
         <!-- For AppCompat widgets, e.g. TextInputLayout -->
         <item name="colorAccent">?android:attr/colorAccent</item>
+        <!-- For Material widgets, e.g. AppBarLayout, which refuse to inflate when these
+             AppCompat attributes are missing. Theme.Settings.Home sets them, but the
+             Expressive themes never inherited from it. -->
+        <item name="colorPrimary">?android:attr/colorPrimary</item>
+        <item name="colorPrimaryDark">?android:attr/colorPrimaryDark</item>
     </style>
 
     <style name="Theme.Settings.Expressive.NoActionBar">

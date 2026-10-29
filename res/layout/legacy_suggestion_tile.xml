@@ -20,6 +20,7 @@
     android:id="@+id/suggestion_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:theme="@style/ThemeOverlay.MaterialComponents.PlatformBridge"
     style="@style/ContextualCardStyle">
 
     <LinearLayout
